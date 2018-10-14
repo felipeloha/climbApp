@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Climbing map</title>
+  <script src='https://api.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet' />
+  <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
+</head>
+
+
+<body>
+  <style>
+    #marker {
+      background-image: url('https://www.mapbox.com/mapbox-gl-js/assets/washington-monument.jpg');
+      background-size: cover;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .mapboxgl-popup {
+      max-width: 200px;
+      font-family: Helvetica;
+    }
+    .mapboxgl-popup-tip {
+      background-color: #d3e7f3;
+    }
+    .mapboxgl-popup-content {
+      background-color: #d3e7f3;
+    }
+    .popup-title{
+      font-weight: bold;
+    }
+  </style>
+
+  <!-- All of the Node.js APIs are available in this renderer process. -->
+  We are using Node.js <script>
+    document.write(process.versions.node)
+  </script>,
+  Chromium <script>
+    document.write(process.versions.chrome)
+  </script>,
+  and Electron <script>
+    document.write(process.versions.electron)
+  </script>.
+
+  <div id='map' style='position:absolute; top:0; bottom:0; width:100%;'></div>
+
+  <script>
+    var routeHandler = require('./RouteHandler.js');
+    var routeHandler = new routeHandler();
+    routeHandler.initMap();
+  </script>
+</body>
+
+</html>
